@@ -1,0 +1,177 @@
+\documentclass{res}
+
+\usepackage{hyperref}
+\usepackage[dvipsnames,table,x11names]{xcolor}
+\usepackage[a4paper, left=1cm, right=2.5cm, top=1cm, bottom=1cm]{geometry}
+\usepackage{texlogos} 
+\usepackage{setspace}
+\usepackage{fontawesome}
+
+%% CONSTANT
+%%
+\newcommand{\backend}{Back\--end}
+\newcommand{\frontend}{Front\--end}
+\newcommand{\fullstack}{Full\--stack}
+\newcommand{\softdev}{Software\- Developer}
+\newcommand{\softeng}{Software\- Engineer}
+\newcommand{\myname}{YOUR\_NAME}
+\newcommand{\gitversion}{\input{|"gitver"}}
+
+%% CONFIG
+%%
+\setstretch{0.4}
+\hypersetup{
+  pdfborder={0 0 0}, 
+  pdftitle={\myname~\Resume}, 
+  pdfauthor={\myname}, 
+  pdfproducer={pdfTeX}, 
+  pdfcreator={\TeX~engine}, 
+  pdfsubject={\Resume}, 
+  pdfkeywords={\Resume, Resume, CV, Curriculum vitae}
+}
+\begin{format}
+  \title{l}\dates{r}\\
+  \employer{l}\location{r}\\
+  \body\\
+\end{format}
+\renewcommand{\fullline}{
+  \nointerlineskip
+  \moveleft\hoffset\vbox{\hrule width7.4in} 
+  \nointerlineskip
+}
+\selectcolormodel{cmyk}
+
+%% COLOR
+%%
+\colorlet{headcolor}{Sepia!80}
+\colorlet{toolcolor}{black}
+\colorlet{tsgcolor}{toolcolor}
+
+%% HELPER
+%%
+%% Technologies typography
+\newcommand{\tool}[1]{\mbox{\texttt{\textbf{\textcolor{toolcolor}{#1}}}}}
+%% Skills group title in table
+\newcommand{\tsg}[1]{\scriptsize{\textcolor{tsgcolor}{#1}}}
+%% Section title
+\newcommand{\sectitle}[1]{\uppercase{#1}}
+%% Position dates
+\newcommand{\posdates}[2][Ongoing]{#2---#1}
+%% Position location
+\newcommand{\posloc}[1]{\tiny{#1}}
+%% Position title
+\newcommand{\postit}[1]{\textcolor{headcolor}{\bfseries{\mbox{#1}}}}
+%% Company
+\newcommand{\com}[1]{#1}
+%% Position body
+\newcommand{\posdesc}[2][]{
+  {#1}
+  {
+    \begin{itemize}
+      #2
+    \end{itemize}
+  }
+}
+%% Displays the C# logo.
+\newcommand{\csharplogo}{\hbox{C\hspace{-0.5ex}
+			    \protect\raisebox{0.5ex}
+			    {\protect\scalebox{0.67}{\#}}}}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\begin{document}
+  \name{\myname}
+  \address{
+    \faSkype~\href{skype://SKYPE\_ID}{SKYPE\_ID} \\ 
+    \faMailForward~\href{mailto://EMAIL}{EMAIL} \\ 
+    \faGithub~\href{https://github.com/GITHUB\_USERNAME}{GITHUB\_USERNAME}
+  }
+  \address{
+    \faLocationArrow~LOCATION \\ 
+    \faPhone~PHONE\_NO \\
+    %
+  }
+  \opening
+
+  \begin{resume} 
+    \section{\sectitle{objective}}
+    {
+      \fullline
+      \begin{center}
+        1
+        ~\slash~
+        ...
+      \end{center}
+    }
+    \section{\sectitle{skills}}
+    {
+      \fullline
+      \begin{center}
+        \arrayrulecolor{tsgcolor}
+        \begin{tabular}{*{5}{c} | l}
+            \tool{TOOL\_NAME} & 
+            \tool{...} & 
+            \tool{...} & 
+            \tool{...} & 
+            \tool{...} & 
+          \tsg{Languages} \\ &&&&& \\
+            \tool{TOOL\_NAME} & 
+            \tool{...} & 
+            \tool{...} & 
+            \tool{...} & 
+            \tool{...} & 
+          \tsg{Technologies} \\ &&&&& \\
+            \tool{TOOL\_NAME} & 
+            \tool{...} & 
+            \tool{...} & 
+            \tool{...} & 
+            \tool{...} & 
+          \tsg{Other} \\
+        \end{tabular}
+      \end{center}
+    }
+    \section{\sectitle{experience}}
+    {
+      \fullline
+      \paragraph{} \hspace*{0pt}
+      {
+        \title{\postit{POSITION}}
+        \dates{\posdates[END\_DATE]{START\_DATE}}
+        \employer{\com{COMPANY}}
+        \location{\posloc{LOCATION}}
+        \begin{position}
+          \posdesc[DESC\_HERE \\]{
+            \item ACHIEVE\_1
+            \item ACHIEVE\_n
+          }
+        \end{position}
+      }
+    }
+
+    \section{\sectitle{education}}
+    {
+      \fullline
+      \paragraph{} \hspace{0pt} \\
+      {
+        \title{\postit{EDU\_TITLE}}
+        \dates{\posdates[END]{START}}
+        \employer{\com{UNIVERSITY}}
+        \location{\posloc{LOCATION}}
+        \begin{position}
+          \posdesc[DESC]{
+            \item ACHIEVE\_n
+          }
+        \end{position}
+      }
+    }
+
+  \end{resume}
+
+  \blfootnote{build \gitversion}
+\end{document}
+

@@ -1,0 +1,13 @@
+*~ 
+*.aux 
+*.log 
+*.dvi 
+*.idx 
+*.ilg 
+*.ind 
+*.toc
+*.gz
+*.fls
+*.fdb*
+.DS_Store
+*.pdf
