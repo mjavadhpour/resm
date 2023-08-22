@@ -1,19 +1,22 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/ubuntu
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
 	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build": {
 		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic /ubuntu-18.04
-		// Use ubuntu-22.04 or ubuntu-18.04 on local arm64/Apple Silicon.
 		"args": { "VARIANT": "ubuntu-22.04" }
 	},
-
 	"postCreateCommand": "docker-entrypoint",
 	"postStartCommand": "git config --global --add safe.directory $PWD",
-
-	"extensions": [
-		"james-yu.latex-workshop",
-		"streetsidesoftware.code-spell-checker"
-	]
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"James-Yu.latex-workshop",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	},
+	"remoteUser": "root"
 }
